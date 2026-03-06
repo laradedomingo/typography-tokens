@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
-import { Heading, Body, Metric, Code } from './components/Typography'
+import { Heading, Body, Code } from './components/Typography'
 import typographyTokens from '../tokens/typography.json'
 import colorTokens from '../tokens/colors.json'
 import './App.css'
@@ -82,21 +82,11 @@ function App() {
     { figmaStyle: 'Body / S / Bold', size: 'small', weight: 'bold', token: 'font.body.small', fontSize: '12px', lineHeight: '16px', usage: 'Secondary content with strong emphasis' },
   ]
 
-  const metricSizes = [
-    { figmaStyle: 'Metric / L', size: 'large', token: 'font.metric.large', fontSize: '28px', lineHeight: '32px', usage: 'Use to emphasize a number within a large donut' },
-    { figmaStyle: 'Metric / M', size: 'medium', token: 'font.metric.medium', fontSize: '24px', lineHeight: '28px', usage: 'Use to emphasize a number within a medium donut' },
-    { figmaStyle: 'Metric / S', size: 'small', token: 'font.metric.small', fontSize: '16px', lineHeight: '20px', usage: 'Use to emphasize a number in single-value tiles, or small donuts' },
-  ]
-
   const previewTemplate = (rowData: any) => {
     if (rowData.weight) {
       return <Body size={rowData.size} weight={rowData.weight}>The quick brown fox jumps over the lazy dog</Body>
     }
     return <Heading size={rowData.size}>The quick brown fox jumps over the lazy dog</Heading>
-  }
-
-  const metricPreviewTemplate = (rowData: any) => {
-    return <Metric size={rowData.size}>60% complete</Metric>
   }
 
   return (
