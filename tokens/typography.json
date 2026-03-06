@@ -1,0 +1,62 @@
+{
+  "typography": {
+    "fontFamily": {
+      "heading": "Atlassian Sans, sans-serif",
+      "body": "Atlassian Sans, sans-serif",
+      "code": "Atlassian Mono, monospace",
+      "metric": "Atlassian Sans, sans-serif"
+    },
+    "fontSize": {
+      "heading": {
+        "xxlarge": "32px",
+        "xlarge": "28px",
+        "large": "24px",
+        "medium": "20px",
+        "small": "16px",
+        "xsmall": "14px",
+        "xxsmall": "12px"
+      },
+      "body": {
+        "large": "16px",
+        "medium": "14px",
+        "small": "12px"
+      },
+      "metric": {
+        "large": "28px",
+        "medium": "24px",
+        "small": "16px"
+      },
+      "code": "12px"
+    },
+    "lineHeight": {
+      "heading": {
+        "xxlarge": "36px",
+        "xlarge": "32px",
+        "large": "28px",
+        "medium": "24px",
+        "small": "20px",
+        "xsmall": "20px",
+        "xxsmall": "16px"
+      },
+      "body": {
+        "large": "24px",
+        "medium": "20px",
+        "small": "16px"
+      },
+      "metric": {
+        "large": "32px",
+        "medium": "28px",
+        "small": "20px"
+      },
+      "code": "20px"
+    },
+    "fontWeight": {
+      "heading": "700",
+      "bodyRegular": "400",
+      "bodyMedium": "500",
+      "bodyBold": "700",
+      "metric": "700",
+      "code": "400"
+    }
+  }
+}

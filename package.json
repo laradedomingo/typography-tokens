@@ -1,0 +1,24 @@
+{
+  "name": "typography-tokens",
+  "version": "1.0.0",
+  "description": "Typography design tokens and components based on Atlassian Design System",
+  "main": "components/Typography.tsx",
+  "types": "components/Typography.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typography",
+    "design-tokens",
+    "design-system",
+    "atlassian",
+    "figma",
+    "react",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0"
+  }
+}
