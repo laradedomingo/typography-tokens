@@ -1,127 +1,147 @@
 .app {
   min-height: 100vh;
-  background-color: #FAFBFC;
+  background-color: #F7F8F9;
 }
 
 .header {
-  background: #0052CC;
+  background: linear-gradient(135deg, #0052CC 0%, #0747A6 100%);
   color: white;
-  padding: 2rem 0;
-  border-bottom: 1px solid #0747A6;
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid rgba(9, 30, 66, 0.08);
+  box-shadow: 0 1px 1px rgba(9, 30, 66, 0.08);
 }
 
 .header h1 {
   color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .header p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 40px;
 }
 
 .main-content {
-  padding: 2rem 0 4rem;
+  padding: 40px 0 80px;
 }
 
 .sidebar-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 2rem;
+  grid-template-columns: 256px 1fr;
+  gap: 40px;
   align-items: start;
 }
 
 .sidebar {
   position: sticky;
-  top: 2rem;
+  top: 40px;
 }
 
 .sidebar-nav {
-  background: white;
-  border-radius: 3px;
-  border: 1px solid #DFE1E6;
-  padding: 0.5rem 0;
+  background: transparent;
+  padding: 0;
 }
 
 .sidebar-nav-item {
   display: block;
-  padding: 0.5rem 1rem;
-  color: #42526E;
+  padding: 8px 12px;
+  color: #44546F;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: background-color 0.1s;
+  line-height: 20px;
+  transition: all 0.15s ease;
   cursor: pointer;
   border: none;
   background: none;
   width: 100%;
   text-align: left;
+  border-radius: 3px;
+  margin-bottom: 2px;
 }
 
 .sidebar-nav-item:hover {
-  background-color: #F4F5F7;
+  background-color: rgba(9, 30, 66, 0.04);
+  color: #172B4D;
 }
 
 .sidebar-nav-item.active {
-  background-color: #DEEBFF;
+  background-color: #E9F2FF;
   color: #0052CC;
+  font-weight: 600;
 }
 
 .content-section {
   background: white;
-  border-radius: 3px;
-  border: 1px solid #DFE1E6;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  padding: 40px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 1px rgba(9, 30, 66, 0.04);
 }
 
 .section-title {
   font-size: 24px;
   font-weight: 600;
   color: #172B4D;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+}
+
+.content-section h3.section-title {
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 32px;
 }
 
 .section-description {
-  color: #6B778C;
-  margin-bottom: 2rem;
+  color: #626F86;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 24px;
 }
 
 .example-container {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .example-title {
   font-size: 16px;
   font-weight: 600;
   color: #172B4D;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
+  line-height: 20px;
 }
 
 .code-example {
-  background-color: #F4F5F7;
+  background-color: #F7F8F9;
   border-radius: 3px;
-  padding: 1rem;
+  padding: 16px;
   overflow-x: auto;
-  border: 1px solid #DFE1E6;
-  margin-top: 1rem;
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  margin-top: 16px;
 }
 
 .code-preview {
-  background-color: #172B4D;
+  background-color: #1D2125;
   border-radius: 3px;
-  padding: 1.5rem;
+  padding: 24px;
   overflow-x: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .code-preview code {
-  color: #B3D4FF;
+  color: #B6C2CF;
 }
 
 pre {
@@ -138,35 +158,47 @@ code {
 
 .p-datatable {
   font-size: 14px;
-  border: 1px solid #DFE1E6;
+  border: 1px solid rgba(9, 30, 66, 0.08);
   border-radius: 3px;
+  overflow: hidden;
 }
 
 .p-datatable .p-datatable-thead > tr > th {
-  background-color: #F4F5F7;
+  background-color: #F7F8F9;
   font-weight: 600;
   color: #172B4D;
-  border-bottom: 2px solid #DFE1E6;
-  padding: 0.75rem 1rem;
+  border-bottom: 2px solid rgba(9, 30, 66, 0.13);
+  padding: 12px 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .p-datatable .p-datatable-tbody > tr > td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #DFE1E6;
+  padding: 16px;
+  border-bottom: 1px solid rgba(9, 30, 66, 0.08);
+  color: #172B4D;
+  line-height: 20px;
+}
+
+.p-datatable .p-datatable-tbody > tr:last-child > td {
+  border-bottom: none;
 }
 
 .p-datatable .p-datatable-tbody > tr:hover {
-  background-color: #F4F5F7;
+  background-color: #F7F8F9;
 }
 
 .token-badge {
-  background-color: #DEEBFF;
+  background-color: #E9F2FF;
   color: #0052CC;
-  padding: 0.25rem 0.5rem;
+  padding: 4px 8px;
   border-radius: 3px;
-  font-family: 'SF Mono', Monaco, monospace;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
   font-size: 12px;
   display: inline-block;
+  font-weight: 500;
+  border: 1px solid rgba(0, 82, 204, 0.2);
 }
 
 .preview-text {

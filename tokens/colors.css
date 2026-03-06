@@ -1,0 +1,67 @@
+/* Atlassian Design System - Color Tokens */
+
+:root {
+  /* Text Colors */
+  --color-text: #292a2e;
+  --color-text-subtle: #505258;
+  --color-text-subtlest: #6b6e76;
+  --color-text-inverse: #ffffff;
+  --color-text-disabled: #080f214a;
+  --color-text-selected: #1868db;
+  --color-text-brand: #1868db;
+  --color-text-danger: #ae2e24;
+  --color-text-warning: #9e4c00;
+  --color-text-warning-inverse: #1f1f21;
+  --color-text-success: #4c6b1f;
+  --color-text-discovery: #803fa5;
+  --color-text-information: #1558bc;
+
+  /* Accent Text Colors - Red */
+  --color-text-accent-red: #ae2e24;
+  --color-text-accent-red-bolder: #5d1f1a;
+
+  /* Accent Text Colors - Orange */
+  --color-text-accent-orange: #9e4c00;
+  --color-text-accent-orange-bolder: #693200;
+
+  /* Accent Text Colors - Yellow */
+  --color-text-accent-yellow: #7f5f01;
+  --color-text-accent-yellow-bolder: #533f04;
+
+  /* Accent Text Colors - Lime */
+  --color-text-accent-lime: #4c6b1f;
+  --color-text-accent-lime-bolder: #37471f;
+
+  /* Accent Text Colors - Green */
+  --color-text-accent-green: #216e4e;
+  --color-text-accent-green-bolder: #164b35;
+
+  /* Accent Text Colors - Teal */
+  --color-text-accent-teal: #206a83;
+  --color-text-accent-teal-bolder: #164555;
+
+  /* Accent Text Colors - Blue */
+  --color-text-accent-blue: #1558bc;
+  --color-text-accent-blue-bolder: #123263;
+
+  /* Accent Text Colors - Purple */
+  --color-text-accent-purple: #803fa5;
+  --color-text-accent-purple-bolder: #48245d;
+
+  /* Accent Text Colors - Magenta */
+  --color-text-accent-magenta: #943d73;
+  --color-text-accent-magenta-bolder: #50253f;
+
+  /* Accent Text Colors - Gray */
+  --color-text-accent-gray: #505258;
+  --color-text-accent-gray-bolder: #1e1f21;
+
+  /* Background Colors */
+  --color-background-neutral: #0515240f;
+
+  /* Border Colors */
+  --color-border: #0b120e24;
+
+  /* Elevation */
+  --elevation-surface: #ffffff;
+}

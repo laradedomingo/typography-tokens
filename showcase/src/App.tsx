@@ -3,39 +3,89 @@ import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 import { Heading, Body, Metric, Code } from './components/Typography'
 import typographyTokens from '../tokens/typography.json'
+import colorTokens from '../tokens/colors.json'
 import './App.css'
 
-type Section = 'headings' | 'body' | 'metrics' | 'code' | 'tokens'
+type Section = 'headings' | 'body' | 'colors' | 'tokens'
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('headings')
 
   const headingSizes = [
-    { size: 'xxlarge', token: 'font.heading.xxlarge', fontSize: '32px', lineHeight: '36px', usage: 'Page titles, hero headings' },
-    { size: 'xlarge', token: 'font.heading.xlarge', fontSize: '28px', lineHeight: '32px', usage: 'Major section headings' },
-    { size: 'large', token: 'font.heading.large', fontSize: '24px', lineHeight: '28px', usage: 'Section headings' },
-    { size: 'medium', token: 'font.heading.medium', fontSize: '20px', lineHeight: '24px', usage: 'Subsection headings' },
-    { size: 'small', token: 'font.heading.small', fontSize: '16px', lineHeight: '20px', usage: 'Card titles' },
-    { size: 'xsmall', token: 'font.heading.xsmall', fontSize: '14px', lineHeight: '20px', usage: 'Table headers' },
-    { size: 'xxsmall', token: 'font.heading.xxsmall', fontSize: '12px', lineHeight: '16px', usage: 'Compact headers' },
+    { 
+      figmaStyle: 'Heading / XXL',
+      size: 'xxlarge', 
+      token: 'font.heading.xxlarge', 
+      fontSize: '32px', 
+      lineHeight: '36px', 
+      usage: 'Brand and marketing content' 
+    },
+    { 
+      figmaStyle: 'Heading / XL',
+      size: 'xlarge', 
+      token: 'font.heading.xlarge', 
+      fontSize: '28px', 
+      lineHeight: '32px', 
+      usage: 'App page titles such as forms' 
+    },
+    { 
+      figmaStyle: 'Heading / L',
+      size: 'large', 
+      token: 'font.heading.large', 
+      fontSize: '24px', 
+      lineHeight: '28px', 
+      usage: 'Headers in large components' 
+    },
+    { 
+      figmaStyle: 'Heading / M',
+      size: 'medium', 
+      token: 'font.heading.medium', 
+      fontSize: '20px', 
+      lineHeight: '24px', 
+      usage: 'Headers in large components, such as modal dialogs' 
+    },
+    { 
+      figmaStyle: 'Heading / S',
+      size: 'small', 
+      token: 'font.heading.small', 
+      fontSize: '16px', 
+      lineHeight: '20px', 
+      usage: 'Headers in small components where space is limited' 
+    },
+    { 
+      figmaStyle: 'Heading / XS',
+      size: 'xsmall', 
+      token: 'font.heading.xsmall', 
+      fontSize: '14px', 
+      lineHeight: '20px', 
+      usage: 'Headers in components' 
+    },
+    { 
+      figmaStyle: 'Heading / XXS',
+      size: 'xxsmall', 
+      token: 'font.heading.xxsmall', 
+      fontSize: '12px', 
+      lineHeight: '16px', 
+      usage: 'Headers in fine print or tight spaces. Use sparingly' 
+    },
   ]
 
   const bodySizes = [
-    { size: 'large', weight: 'regular', token: 'font.body.large', fontSize: '16px', lineHeight: '24px' },
-    { size: 'large', weight: 'medium', token: 'font.body.large', fontSize: '16px', lineHeight: '24px' },
-    { size: 'large', weight: 'bold', token: 'font.body.large', fontSize: '16px', lineHeight: '24px' },
-    { size: 'medium', weight: 'regular', token: 'font.body.medium', fontSize: '14px', lineHeight: '20px' },
-    { size: 'medium', weight: 'medium', token: 'font.body.medium', fontSize: '14px', lineHeight: '20px' },
-    { size: 'medium', weight: 'bold', token: 'font.body.medium', fontSize: '14px', lineHeight: '20px' },
-    { size: 'small', weight: 'regular', token: 'font.body.small', fontSize: '12px', lineHeight: '16px' },
-    { size: 'small', weight: 'medium', token: 'font.body.small', fontSize: '12px', lineHeight: '16px' },
-    { size: 'small', weight: 'bold', token: 'font.body.small', fontSize: '12px', lineHeight: '16px' },
+    { figmaStyle: 'Body / L / Regular', size: 'large', weight: 'regular', token: 'font.body.large', fontSize: '16px', lineHeight: '24px', usage: 'Long-form content such as blogs. The default size for reading text' },
+    { figmaStyle: 'Body / L / Medium', size: 'large', weight: 'medium', token: 'font.body.large', fontSize: '16px', lineHeight: '24px', usage: 'Long-form content with emphasis' },
+    { figmaStyle: 'Body / L / Bold', size: 'large', weight: 'bold', token: 'font.body.large', fontSize: '16px', lineHeight: '24px', usage: 'Long-form content with strong emphasis' },
+    { figmaStyle: 'Body / M (Default) / Regular', size: 'medium', weight: 'regular', token: 'font.body', fontSize: '14px', lineHeight: '20px', usage: 'Short text, such as descriptions in flags, or labels in buttons' },
+    { figmaStyle: 'Body / M (Default) / Medium', size: 'medium', weight: 'medium', token: 'font.body', fontSize: '14px', lineHeight: '20px', usage: 'Default size for text in components' },
+    { figmaStyle: 'Body / M (Default) / Bold', size: 'medium', weight: 'bold', token: 'font.body', fontSize: '14px', lineHeight: '20px', usage: 'Default size with strong emphasis' },
+    { figmaStyle: 'Body / S / Regular', size: 'small', weight: 'regular', token: 'font.body.small', fontSize: '12px', lineHeight: '16px', usage: 'Secondary level content such as fine print. Use sparingly' },
+    { figmaStyle: 'Body / S / Medium', size: 'small', weight: 'medium', token: 'font.body.small', fontSize: '12px', lineHeight: '16px', usage: 'Secondary content with emphasis' },
+    { figmaStyle: 'Body / S / Bold', size: 'small', weight: 'bold', token: 'font.body.small', fontSize: '12px', lineHeight: '16px', usage: 'Secondary content with strong emphasis' },
   ]
 
   const metricSizes = [
-    { size: 'large', token: 'font.metric.large', fontSize: '28px', lineHeight: '32px', usage: 'Large statistics, KPIs' },
-    { size: 'medium', token: 'font.metric.medium', fontSize: '24px', lineHeight: '28px', usage: 'Medium metrics' },
-    { size: 'small', token: 'font.metric.small', fontSize: '16px', lineHeight: '20px', usage: 'Compact metrics' },
+    { figmaStyle: 'Metric / L', size: 'large', token: 'font.metric.large', fontSize: '28px', lineHeight: '32px', usage: 'Use to emphasize a number within a large donut' },
+    { figmaStyle: 'Metric / M', size: 'medium', token: 'font.metric.medium', fontSize: '24px', lineHeight: '28px', usage: 'Use to emphasize a number within a medium donut' },
+    { figmaStyle: 'Metric / S', size: 'small', token: 'font.metric.small', fontSize: '16px', lineHeight: '20px', usage: 'Use to emphasize a number in single-value tiles, or small donuts' },
   ]
 
   const previewTemplate = (rowData: any) => {
@@ -75,16 +125,10 @@ function App() {
                 Body text
               </button>
               <button 
-                className={`sidebar-nav-item ${activeSection === 'metrics' ? 'active' : ''}`}
-                onClick={() => setActiveSection('metrics')}
+                className={`sidebar-nav-item ${activeSection === 'colors' ? 'active' : ''}`}
+                onClick={() => setActiveSection('colors')}
               >
-                Metrics
-              </button>
-              <button 
-                className={`sidebar-nav-item ${activeSection === 'code' ? 'active' : ''}`}
-                onClick={() => setActiveSection('code')}
-              >
-                Code
+                Colors
               </button>
               <button 
                 className={`sidebar-nav-item ${activeSection === 'tokens' ? 'active' : ''}`}
@@ -105,17 +149,17 @@ function App() {
                   </p>
                   
                   <DataTable value={headingSizes} stripedRows>
-                    <Column field="size" header="Size" style={{ width: '10%' }} />
+                    <Column field="figmaStyle" header="Figma text style" style={{ width: '15%' }} />
                     <Column 
                       field="token" 
                       header="Token" 
-                      style={{ width: '20%' }}
+                      style={{ width: '18%' }}
                       body={(rowData) => <span className="token-badge">{rowData.token}</span>}
                     />
                     <Column field="fontSize" header="Font size" style={{ width: '10%' }} />
                     <Column field="lineHeight" header="Line height" style={{ width: '10%' }} />
-                    <Column header="Preview" body={previewTemplate} style={{ width: '30%' }} />
-                    <Column field="usage" header="Usage" style={{ width: '20%' }} />
+                    <Column header="Preview" body={previewTemplate} style={{ width: '22%' }} />
+                    <Column field="usage" header="Suitable for" style={{ width: '25%' }} />
                   </DataTable>
                 </section>
 
@@ -141,17 +185,17 @@ function App() {
                   </p>
                   
                   <DataTable value={bodySizes} stripedRows>
-                    <Column field="size" header="Size" style={{ width: '12%' }} />
-                    <Column field="weight" header="Weight" style={{ width: '12%' }} />
+                    <Column field="figmaStyle" header="Figma text style" style={{ width: '18%' }} />
                     <Column 
                       field="token" 
                       header="Token" 
-                      style={{ width: '18%' }}
+                      style={{ width: '15%' }}
                       body={(rowData) => <span className="token-badge">{rowData.token}</span>}
                     />
                     <Column field="fontSize" header="Font size" style={{ width: '10%' }} />
                     <Column field="lineHeight" header="Line height" style={{ width: '10%' }} />
-                    <Column header="Preview" body={previewTemplate} style={{ width: '38%' }} />
+                    <Column header="Preview" body={previewTemplate} style={{ width: '22%' }} />
+                    <Column field="usage" header="Suitable for" style={{ width: '25%' }} />
                   </DataTable>
                 </section>
 
@@ -168,91 +212,106 @@ function App() {
               </>
             )}
 
-            {activeSection === 'metrics' && (
+            {activeSection === 'colors' && (
               <>
                 <section className="content-section">
-                  <h2 className="section-title">Metric styles</h2>
+                  <h2 className="section-title">Text colors</h2>
                   <p className="section-description">
-                    Metric styles are designed for displaying numbers, statistics, and data.
+                    Text colors are used for all text elements across the design system.
                   </p>
                   
-                  <DataTable value={metricSizes} stripedRows>
-                    <Column field="size" header="Size" style={{ width: '12%' }} />
-                    <Column 
-                      field="token" 
-                      header="Token" 
-                      style={{ width: '18%' }}
-                      body={(rowData) => <span className="token-badge">{rowData.token}</span>}
-                    />
-                    <Column field="fontSize" header="Font size" style={{ width: '10%' }} />
-                    <Column field="lineHeight" header="Line height" style={{ width: '10%' }} />
-                    <Column header="Preview" body={metricPreviewTemplate} style={{ width: '30%' }} />
-                    <Column field="usage" header="Usage" style={{ width: '20%' }} />
-                  </DataTable>
-                </section>
-
-                <section className="content-section">
-                  <h3 className="example-title">Usage</h3>
-                  <div className="code-example">
-                    <Code>{`import { Metric } from './components/Typography';
-
-<Metric size="large">60% complete</Metric>
-<Metric size="medium">5 in review</Metric>
-<Metric size="small">12 tasks</Metric>`}</Code>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px', marginTop: '24px' }}>
+                    {Object.entries(colorTokens.color.text).map(([key, value]) => {
+                      if (typeof value === 'string') {
+                        return (
+                          <div key={key} style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '4px' }}>
+                            <div style={{ width: '100%', height: '60px', backgroundColor: value, borderRadius: '4px', marginBottom: '8px', border: '1px solid #e0e0e0' }}></div>
+                            <Code inline>color.text.{key}</Code>
+                            <div style={{ marginTop: '4px', fontSize: '12px', color: '#6b6e76' }}>{value}</div>
+                          </div>
+                        )
+                      }
+                      return null
+                    })}
                   </div>
                 </section>
-              </>
-            )}
 
-            {activeSection === 'code' && (
-              <>
                 <section className="content-section">
-                  <h2 className="section-title">Code style</h2>
+                  <h3 className="section-title">Accent colors</h3>
                   <p className="section-description">
-                    Code style uses Atlassian Mono for displaying code snippets and technical content.
+                    Accent colors provide semantic meaning and visual hierarchy.
                   </p>
                   
-                  <div className="example-container">
-                    <h3 className="example-title">Example</h3>
-                    <div className="code-preview">
-                      <Code>{`for (int i = 0; i < 26; i++) {
-  printf("Quick brown fox jumps over lazy dog %d times.\\n", i);
-  printf("1234567890");
-}`}</Code>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px', marginTop: '24px' }}>
+                    {Object.entries(colorTokens.color.text.accent).map(([colorName, shades]) => (
+                      <div key={colorName}>
+                        {Object.entries(shades as Record<string, string>).map(([shade, value]) => (
+                          <div key={`${colorName}-${shade}`} style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '4px', marginBottom: '8px' }}>
+                            <div style={{ width: '100%', height: '60px', backgroundColor: value, borderRadius: '4px', marginBottom: '8px', border: '1px solid #e0e0e0' }}></div>
+                            <Code inline>color.text.accent.{colorName}.{shade}</Code>
+                            <div style={{ marginTop: '4px', fontSize: '12px', color: '#6b6e76' }}>{value}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Other colors</h3>
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px', marginTop: '24px' }}>
+                    <div style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '4px' }}>
+                      <div style={{ width: '100%', height: '60px', backgroundColor: colorTokens.color.background.neutral, borderRadius: '4px', marginBottom: '8px', border: '1px solid #e0e0e0' }}></div>
+                      <Code inline>color.background.neutral</Code>
+                      <div style={{ marginTop: '4px', fontSize: '12px', color: '#6b6e76' }}>{colorTokens.color.background.neutral}</div>
                     </div>
-                  </div>
-                </section>
-
-                <section className="content-section">
-                  <h3 className="example-title">Usage</h3>
-                  <div className="code-example">
-                    <Code>{`import { Code } from './components/Typography';
-
-// Block code
-<Code>
-{\`for (int i = 0; i < 26; i++) {
-  printf("Hello World");
-}\`}
-</Code>
-
-// Inline code
-<Code inline>const value = 42;</Code>`}</Code>
+                    <div style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '4px' }}>
+                      <div style={{ width: '100%', height: '60px', backgroundColor: colorTokens.color.border.default, borderRadius: '4px', marginBottom: '8px', border: '1px solid #e0e0e0' }}></div>
+                      <Code inline>color.border</Code>
+                      <div style={{ marginTop: '4px', fontSize: '12px', color: '#6b6e76' }}>{colorTokens.color.border.default}</div>
+                    </div>
+                    <div style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '4px' }}>
+                      <div style={{ width: '100%', height: '60px', backgroundColor: colorTokens.color.elevation.surface, borderRadius: '4px', marginBottom: '8px', border: '1px solid #e0e0e0' }}></div>
+                      <Code inline>elevation.surface</Code>
+                      <div style={{ marginTop: '4px', fontSize: '12px', color: '#6b6e76' }}>{colorTokens.color.elevation.surface}</div>
+                    </div>
                   </div>
                 </section>
               </>
             )}
 
             {activeSection === 'tokens' && (
-              <section className="content-section">
-                <h2 className="section-title">Design tokens</h2>
-                <p className="section-description">
-                  All typography values are available as design tokens in JSON and CSS formats.
-                </p>
-                
-                <div className="code-example">
-                  <Code>{JSON.stringify(typographyTokens, null, 2)}</Code>
-                </div>
-              </section>
+              <>
+                <section className="content-section">
+                  <h2 className="section-title">Design tokens</h2>
+                  <p className="section-description">
+                    All design tokens are available in JSON and CSS formats for easy integration into your projects.
+                  </p>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Typography tokens</h3>
+                  <p className="section-description">
+                    Font families, sizes, line heights, and weights.
+                  </p>
+                  
+                  <div className="code-example">
+                    <Code>{JSON.stringify(typographyTokens, null, 2)}</Code>
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Color tokens</h3>
+                  <p className="section-description">
+                    Text colors, accent colors, backgrounds, borders, and elevation.
+                  </p>
+                  
+                  <div className="code-example">
+                    <Code>{JSON.stringify(colorTokens, null, 2)}</Code>
+                  </div>
+                </section>
+              </>
             )}
           </div>
         </div>
