@@ -1,0 +1,73 @@
+{
+  "button": {
+    "primary": {
+      "background": {
+        "default": "#1868db",
+        "hover": "#0747A6",
+        "active": "#09326C"
+      },
+      "text": "#ffffff"
+    },
+    "secondary": {
+      "background": {
+        "default": "transparent",
+        "hover": "rgba(9, 30, 66, 0.04)",
+        "active": "rgba(9, 30, 66, 0.08)"
+      },
+      "text": "#292a2e",
+      "border": "#0b120e24"
+    },
+    "danger": {
+      "background": {
+        "default": "#ae2e24",
+        "hover": "#BF2600",
+        "active": "#8C1D00"
+      },
+      "text": "#ffffff"
+    },
+    "success": {
+      "background": {
+        "default": "#4c6b1f",
+        "hover": "#5B7F24",
+        "active": "#37471F"
+      },
+      "text": "#ffffff"
+    },
+    "warning": {
+      "background": {
+        "default": "#9e4c00",
+        "hover": "#B65C02",
+        "active": "#693200"
+      },
+      "text": "#1f1f21"
+    },
+    "link": {
+      "background": "transparent",
+      "text": {
+        "default": "#1868db",
+        "hover": "#0747A6",
+        "active": "#09326C"
+      }
+    },
+    "size": {
+      "small": {
+        "fontSize": "12px",
+        "padding": "6px 12px",
+        "height": "28px"
+      },
+      "medium": {
+        "fontSize": "14px",
+        "padding": "8px 16px",
+        "height": "36px"
+      },
+      "large": {
+        "fontSize": "16px",
+        "padding": "10px 20px",
+        "height": "44px"
+      }
+    },
+    "borderRadius": "3px",
+    "fontWeight": "500",
+    "transition": "all 0.15s ease"
+  }
+}

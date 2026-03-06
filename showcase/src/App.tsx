@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 import { Heading, Body, Code } from './components/Typography'
+import { Button } from './components/Button'
 import typographyTokens from '../tokens/typography.json'
 import colorTokens from '../tokens/colors.json'
+import buttonTokens from '../tokens/button.json'
 import './App.css'
 
-type Section = 'headings' | 'body' | 'colors' | 'tokens'
+type Section = 'headings' | 'body' | 'buttons' | 'colors' | 'tokens'
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('headings')
@@ -115,6 +117,12 @@ function App() {
                 Body text
               </button>
               <button 
+                className={`sidebar-nav-item ${activeSection === 'buttons' ? 'active' : ''}`}
+                onClick={() => setActiveSection('buttons')}
+              >
+                Buttons
+              </button>
+              <button 
                 className={`sidebar-nav-item ${activeSection === 'colors' ? 'active' : ''}`}
                 onClick={() => setActiveSection('colors')}
               >
@@ -198,6 +206,105 @@ function App() {
 <Body size="medium" weight="medium">Medium weight text</Body>
 <Body size="small" weight="bold">Small bold text</Body>`}</Code>
                   </div>
+                </section>
+              </>
+            )}
+
+            {activeSection === 'buttons' && (
+              <>
+                <section className="content-section">
+                  <h2 className="section-title">Button variants</h2>
+                  <p className="section-description">
+                    Buttons use semantic color tokens to communicate different actions and states.
+                  </p>
+                  
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginTop: '24px' }}>
+                    <Button variant="primary">Primary</Button>
+                    <Button variant="secondary">Secondary</Button>
+                    <Button variant="danger">Danger</Button>
+                    <Button variant="success">Success</Button>
+                    <Button variant="warning">Warning</Button>
+                    <Button variant="link">Link</Button>
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Button sizes</h3>
+                  <p className="section-description">
+                    Three sizes are available to accommodate different layouts and hierarchies.
+                  </p>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '24px' }}>
+                    <Button variant="primary" size="small">Small</Button>
+                    <Button variant="primary" size="medium">Medium</Button>
+                    <Button variant="primary" size="large">Large</Button>
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Button states</h3>
+                  <p className="section-description">
+                    Buttons have hover, active, focus, and disabled states.
+                  </p>
+                  
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginTop: '24px' }}>
+                    <Button variant="primary">Default</Button>
+                    <Button variant="primary" disabled>Disabled</Button>
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="example-title">Usage</h3>
+                  <div className="code-example">
+                    <Code>{`import { Button } from './components/Button';
+
+// Variants
+<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="danger">Danger</Button>
+<Button variant="success">Success</Button>
+<Button variant="warning">Warning</Button>
+<Button variant="link">Link</Button>
+
+// Sizes
+<Button size="small">Small</Button>
+<Button size="medium">Medium</Button>
+<Button size="large">Large</Button>
+
+// States
+<Button disabled>Disabled</Button>`}</Code>
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Design tokens</h3>
+                  <p className="section-description">
+                    Button styles use semantic color tokens for consistency.
+                  </p>
+                  
+                  <DataTable value={[
+                    { variant: 'Primary', background: 'color.text.brand', text: 'color.text.inverse', usage: 'Main call-to-action' },
+                    { variant: 'Secondary', background: 'transparent', text: 'color.text', usage: 'Secondary actions' },
+                    { variant: 'Danger', background: 'color.text.danger', text: 'color.text.inverse', usage: 'Destructive actions' },
+                    { variant: 'Success', background: 'color.text.success', text: 'color.text.inverse', usage: 'Positive actions' },
+                    { variant: 'Warning', background: 'color.text.warning', text: 'color.text.warning.inverse', usage: 'Warning actions' },
+                    { variant: 'Link', background: 'transparent', text: 'color.text.brand', usage: 'Tertiary actions' },
+                  ]} stripedRows>
+                    <Column field="variant" header="Variant" style={{ width: '15%' }} />
+                    <Column 
+                      field="background" 
+                      header="Background token" 
+                      style={{ width: '25%' }}
+                      body={(rowData) => <span className="token-badge">{rowData.background}</span>}
+                    />
+                    <Column 
+                      field="text" 
+                      header="Text token" 
+                      style={{ width: '25%' }}
+                      body={(rowData) => <span className="token-badge">{rowData.text}</span>}
+                    />
+                    <Column field="usage" header="Usage" style={{ width: '35%' }} />
+                  </DataTable>
                 </section>
               </>
             )}
@@ -299,6 +406,17 @@ function App() {
                   
                   <div className="code-example">
                     <Code>{JSON.stringify(colorTokens, null, 2)}</Code>
+                  </div>
+                </section>
+
+                <section className="content-section">
+                  <h3 className="section-title">Button tokens</h3>
+                  <p className="section-description">
+                    Button variants, sizes, and states using semantic color tokens.
+                  </p>
+                  
+                  <div className="code-example">
+                    <Code>{JSON.stringify(buttonTokens, null, 2)}</Code>
                   </div>
                 </section>
               </>
